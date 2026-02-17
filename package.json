@@ -1,7 +1,7 @@
 {
   "name": "farnsworth-syntek",
   "version": "1.0.0",
-  "description": "Farnsworth SYNTEK — 7-layer recursive agent memory with context branching, holographic recall, and on-chain persistence.",
+  "description": "Farnsworth SYNTEK \u2014 7-layer recursive agent memory with context branching, holographic recall, and on-chain persistence.",
   "main": "dist/client.js",
   "bin": {
     "farnsworth-syntek": "./dist/mcp/setup.js",
@@ -21,9 +21,18 @@
   },
   "homepage": "https://ai.farnsworth.cloud/memory",
   "keywords": [
-    "syntek", "farnsworth", "agent-memory", "recursive-memory",
-    "context-branching", "knowledge-graph", "on-chain",
-    "monad", "x402", "mcp", "claude", "ai-agent"
+    "syntek",
+    "farnsworth",
+    "agent-memory",
+    "recursive-memory",
+    "context-branching",
+    "knowledge-graph",
+    "on-chain",
+    "monad",
+    "x402",
+    "mcp",
+    "claude",
+    "ai-agent"
   ],
   "files": [
     "dist/",
