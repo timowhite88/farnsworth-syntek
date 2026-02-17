@@ -1,0 +1,11 @@
+# ── NEVER publish source code ──
+src/
+patches/
+public/
+build.js
+security-patch*.py
+test-flow.sh
+*.tar.gz
+
+# ── Only dist/ ships (obfuscated) ──
+# See package.json "files" field
