@@ -1,7 +1,7 @@
 {
   "name": "farnsworth-syntek",
   "version": "1.0.0",
-  "description": "Farnsworth SYNTEK \u2014 7-layer recursive agent memory with context branching, holographic recall, and on-chain persistence.",
+  "description": "Farnsworth SYNTEK — 7-layer recursive agent memory with context branching, holographic recall, and on-chain persistence.",
   "main": "dist/client.js",
   "bin": {
     "farnsworth-syntek": "./dist/mcp/setup.js",
@@ -42,5 +42,9 @@
   "author": "Farnsworth Labs <timowhite88@icloud.com>",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
   }
 }
