@@ -1,5 +1,5 @@
 /**
- * Farnsworth SYNTEK v1.0.1
+ * Farnsworth SYNTEK v1.0.2
  * (c) 2026 Farnsworth Labs — All rights reserved.
  * PROPRIETARY AND CONFIDENTIAL. Unauthorized copying prohibited.
  * This software is protected by international copyright law.
@@ -10,7 +10,7 @@ const fs = require("fs");
 const path = require("path");
 
 const DEFAULT_GATEWAY = "https://ai.farnsworth.cloud";
-const VERSION = "1.0.1";
+const VERSION = "1.0.2";
 
 class SyntekClient {
   constructor(opts = {}) {
@@ -104,7 +104,7 @@ class SyntekClient {
       const body = await resp.text();
       let msg;
       try { msg = JSON.parse(body).error || body; } catch { msg = body; }
-      throw new Error(msg);
+      throw new Error(`${resp.status}: ${msg}`);
     }
     return resp.json();
   }

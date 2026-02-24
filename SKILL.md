@@ -1,6 +1,6 @@
 # SYNTEK Memory Service
 
-> 7-layer recursive agent memory with context branching, holographic recall, and on-chain persistence.
+> 7-layer recursive agent memory with context branching, holographic recall, and on-chain persistence via DropClaw.
 
 ## Endpoint
 
@@ -35,8 +35,8 @@ claude mcp add farnsworth-syntek -- npx farnsworth-syntek-mcp
 | `syntek_branch` | Manage context branches (create, switch, merge, delete) |
 | `syntek_context` | Get current context snapshot with budget info |
 | `syntek_status` | Check memory status across all layers |
-| `syntek_session_end` | Trigger dream consolidation + prepare for upload |
-| `syntek_subscribe` | Initiate on-chain subscription |
+| `syntek_session_end` | Trigger dream consolidation + upload memory to chain via DropClaw |
+| `syntek_subscribe` | Initiate or check on-chain subscription |
 
 ## REST API
 
@@ -62,7 +62,7 @@ claude mcp add farnsworth-syntek -- npx farnsworth-syntek-mcp
 | `POST` | `/memory/branch/merge` | Merge branch — `{ name, strategy? }` |
 | `POST` | `/memory/subscribe` | Start subscription — `{ wallet, tier }` |
 | `GET` | `/memory/subscribe` | Check subscription status |
-| `POST` | `/memory/sync` | Sync to chain (subscribers only) |
+| `POST` | `/memory/sync` | Upload memory to chain via DropClaw (subscribers only) |
 
 ## Memory Layers
 
@@ -83,6 +83,39 @@ claude mcp add farnsworth-syntek -- npx farnsworth-syntek-mcp
 3. **Abstract** — Climb the abstraction ladder (instance > category > concept > principle > axiom)
 4. **Synthesize** — Find cross-domain patterns, generate insights
 5. **Compress** — Minimize token footprint, maximize information density
+
+## On-Chain Persistence via DropClaw
+
+Syntek uses [DropClaw](https://github.com/timowhite88/dropclaw) for permanent on-chain memory storage. When a session ends (`syntek_session_end`), consolidated memory is encrypted (AES-256-GCM) and uploaded directly to the Monad blockchain as calldata via DropClaw.
+
+**How it works:**
+1. `syntek_session_end` triggers dream consolidation (compress + merge memory layers)
+2. Consolidated memory is encrypted client-side — Syntek never sees plaintext on-chain data
+3. Encrypted memory blob is written directly on-chain as Monad calldata via DropClaw
+4. Encryption keys stay with the user in `~/.farnsworth/` — if lost, on-chain data cannot be recovered
+5. On next session start, memory is loaded from chain and decrypted locally
+
+**DropClaw access for Syntek subscribers:**
+- Syntek subscription ($100/90 days) includes DropClaw access **for Syntek memory uploads only**
+- The $30 DropClaw service fee is waived for Syntek memory syncs
+- **User still pays Monad gas fees** for on-chain storage (variable, depends on memory size)
+- Regular DropClaw usage (non-Syntek file storage) still costs $30 + gas
+
+## Pricing
+
+- **Subscription:** $100 / 90 days via x402 protocol
+- **Includes:** Full 7-layer memory engine + DropClaw access for Syntek uploads (gas only)
+- **Gas fees:** User pays Monad gas for on-chain memory sync (per session end)
+- **Regular DropClaw:** For non-Syntek file storage, standard DropClaw pricing applies ($30 + gas)
+- **PlanetExpress:** Syntek subscribers get 50% off marketplace listings ($15 instead of $30)
+
+## Payment Options
+
+| Network | Chain ID | Asset | Pay-To Address |
+|---------|----------|-------|---------------|
+| Monad | eip155:143 | MON (native) | `0xC86E4a0b90874d8081276AE13e830e23C726229e` |
+| Solana | solana:5eykt4... | SOL (native) | `9cQMUBgEPzunpzkjQxV2TMKUUHPFqAHWzNGw9dBzZeSc` |
+| Base | eip155:8453 | USDC | `0xC86E4a0b90874d8081276AE13e830e23C726229e` |
 
 ## Example Usage
 

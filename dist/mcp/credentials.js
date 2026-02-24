@@ -1,5 +1,5 @@
 /**
- * Farnsworth SYNTEK v1.0.0
+ * Farnsworth SYNTEK v1.0.2
  * (c) 2026 Farnsworth Labs — All rights reserved.
  * PROPRIETARY AND CONFIDENTIAL. Unauthorized copying prohibited.
  * This software is protected by international copyright law.

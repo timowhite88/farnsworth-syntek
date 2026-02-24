@@ -1,6 +1,6 @@
 {
   "name": "farnsworth-syntek",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Farnsworth SYNTEK \u2014 7-layer recursive agent memory with context branching, holographic recall, and on-chain persistence.",
   "main": "dist/client.js",
   "bin": {
