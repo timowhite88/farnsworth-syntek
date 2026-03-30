@@ -33,6 +33,10 @@ Your agent now has 10 MCP tools:
 | `syntek_session_end` | Consolidate + encrypt + upload memory to chain via DropClaw |
 | `syntek_subscribe` | Check subscription status |
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/timowhite88-farnsworth-syntek).
+
 ## Architecture
 
 
